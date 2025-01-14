@@ -13,6 +13,11 @@ jobs:
     steps:
     - name: Clone project
       uses: actions/checkout@v4
+
+    - name: Clone deployment repo
+      uses: actions/checkout@v4
+      with:
+        repository: Laerdal/datadog-unity-sdk
     
     - name: Install PIP packages
       run: pip install -r tools/scripts/requirements.txt
