@@ -20,4 +20,6 @@ jobs:
     - name: Run release script
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      run: python tools/scripts/release_package.py --version ${{ inputs.version }} --dest git@github.com:Laerdal/datadog-unity-package
+      run: |
+        cd tools/scripts
+        python release_package.py --version ${{ inputs.version }} --dest git@github.com:Laerdal/datadog-unity-package --skip-manual-verify
