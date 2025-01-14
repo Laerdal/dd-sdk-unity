@@ -13,12 +13,11 @@ jobs:
     steps:
     - name: Clone project
       uses: actions/checkout@v4
-
-    - name: Setup Python
-      uses: actions/setup-python@v5
     
     - name: Install PIP packages
       run: pip install -r tools/scripts/requirements.txt
     
     - name: Run release script
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       run: python tools/scripts/release_package.py --version ${{ inputs.version }} --dest git@github.com:Laerdal/datadog-unity-package
