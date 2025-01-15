@@ -28,10 +28,10 @@ jobs:
         cd ${{ github.workspace }}/dd-sdk-unity/tools/scripts
         pip install -r requirements.txt
 
-    - name: Configure git
+    - name: Set token in project repo
       run: |
-          git config --global user.email "automated@workflow.com"
-          git config --global user.name "🤖"
+        cd ${{ github.workspace }}/dd-sdk-unity
+        git remote set-url origin https://${{ secrets.DATADOG_UNITY_PACKAGE_PAT }}@github.com/Laerdal/dd-sdk-unity
 
     - name: Set token in deployment repo
       run: |
