@@ -25,10 +25,12 @@ jobs:
     
     - name: Install PIP packages
       run: |
-        cd dd-sdk-unity/tools/scripts 
+        cd ${{ github.workspace }}/dd-sdk-unity/tools/scripts
         pip install -r requirements.txt
     
     - name: Run release script
       env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      run: python release_package.py --version ${{ inputs.version }} --dest $WORKSPACE/datadog-unity-package --skip-manual-verify
+        GITHUB_TOKEN: ${{ secrets.DATADOG_UNITY_PACKAGE_PAT }}
+      run: |
+        cd ${{ github.workspace }}/dd-sdk-unity/tools/scripts
+        python release_package.py --version ${{ inputs.version }} --dest $WORKSPACE/datadog-unity-package --skip-manual-verify
