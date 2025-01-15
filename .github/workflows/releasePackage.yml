@@ -33,4 +33,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.DATADOG_UNITY_PACKAGE_PAT }}
       run: |
         cd ${{ github.workspace }}/dd-sdk-unity/tools/scripts
-        python release_package.py --version ${{ inputs.version }} --dest $WORKSPACE/datadog-unity-package --skip-manual-verify
+        python release_package.py --version ${{ inputs.version }} --dest ${{ github.workspace }}/datadog-unity-package --skip-manual-verify
