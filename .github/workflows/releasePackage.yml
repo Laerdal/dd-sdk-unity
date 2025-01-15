@@ -21,6 +21,7 @@ jobs:
       with:
         repository: Laerdal/datadog-unity-sdk
         path: datadog-unity-sdk
+        token: ${{ secrets.DATADOG_UNITY_PACKAGE_PAT }}
 
     
     - name: Install PIP packages
