@@ -110,7 +110,8 @@ def _commit_and_tag(repo: git.Repo, version: str):
 def _push(repo: git.Repo):
     origin = repo.remote()
     index = origin.url.find("https://")
-    origin.set_url(origin.url[:index] + os.environ["GITHUB_TOKEN"] + "@" + origin.url[index:])
+    origin.set_url(origin.url[:index + 1] + os.environ["GITHUB_TOKEN"] + "@" + origin.url[index + 1:])
+    print(f"Pushing to {origin.url}")
     origin.push()
 
 def _add_repo_note(dest: str):
