@@ -24,11 +24,11 @@ jobs:
         token: ${{ secrets.DATADOG_UNITY_PACKAGE_PAT }}
     
     - name: Install PIP packages
-      run: pip install -r tools/scripts/requirements.txt
+      run: |
+        cd dd-sdk-unity/tools/scripts 
+        pip install -r tools/scripts/requirements.txt
     
     - name: Run release script
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      run: |
-        cd tools/scripts
-        python release_package.py --version ${{ inputs.version }} --dest git@github.com:Laerdal/datadog-unity-package --skip-manual-verify
+      run: python release_package.py --version ${{ inputs.version }} --dest $WORKSPACE/datadog-unity-package --skip-manual-verify
