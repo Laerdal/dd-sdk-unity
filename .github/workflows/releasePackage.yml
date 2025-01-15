@@ -19,7 +19,7 @@ jobs:
     - name: Clone deployment repo
       uses: actions/checkout@v4
       with:
-        repository: Laerdal/datadog-unity-sdk
+        repository: Laerdal/datadog-unity-sdk@main
         path: datadog-unity-sdk
         token: ${{ secrets.DATADOG_UNITY_PACKAGE_PAT }}
 
