@@ -26,7 +26,7 @@ jobs:
     - name: Install PIP packages
       run: |
         cd dd-sdk-unity/tools/scripts 
-        pip install -r tools/scripts/requirements.txt
+        pip install -r requirements.txt
     
     - name: Run release script
       env:
