@@ -36,7 +36,7 @@ jobs:
     - name: Set token in deployment repo
       run: |
         cd ${{ github.workspace }}/datadog-unity-package
-        git remote set-url origin ${{ secrets.DATADOG_UNITY_PACKAGE_PAT }}@github.com:Laerdal/datadog-unity-package.git
+        git remote set-url origin https://${{ secrets.DATADOG_UNITY_PACKAGE_PAT }}@github.com/Laerdal/datadog-unity-package
     
     - name: Run release script
       env:
