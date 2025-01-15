@@ -200,7 +200,7 @@ def main():
             return False
 
     chore_branch = f"chore/release-{version}"
-    print(f"Creating prep btanch '{chore_branch}'")
+    print(f"Creating prep branch '{chore_branch}'")
     _branch(REPO_ROOT, chore_branch)
     print("Modifying CHANGELOG")
     if not _add_version_to_changelog(PACKAGE_LOCATION, version):

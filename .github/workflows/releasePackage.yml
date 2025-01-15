@@ -32,6 +32,11 @@ jobs:
       run: |
           git config --global user.email "automated@workflow.com"
           git config --global user.name "🤖"
+
+    - name: Set token in deployment repo
+      run: |
+        cd ${{ github.workspace }}/datadog-unity-package
+        git remote set-url origin ${{ secrets.DATADOG_UNITY_PACKAGE_PAT }}@github.com:Laerdal/datadog-unity-package.git
     
     - name: Run release script
       env:
