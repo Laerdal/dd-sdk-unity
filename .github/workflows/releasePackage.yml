@@ -18,6 +18,8 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: Laerdal/datadog-unity-sdk
+        path: datadog-unity-sdk
+
     
     - name: Install PIP packages
       run: pip install -r tools/scripts/requirements.txt
